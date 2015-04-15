@@ -19,6 +19,10 @@ Route::get('about', 'PagesController@about');
 
 Route::get('home', 'HomeController@index');
 
+Route::get('user','UserController@index');
+
+Route::get('user/{id}','UserController@show');
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
