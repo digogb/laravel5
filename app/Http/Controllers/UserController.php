@@ -1,18 +1,16 @@
 <?php namespace App\Http\Controllers;
 
-use App\Http\Requests;
+use Request;
 use App\Http\Controllers\Controller;
 use \App\User;
 
-use Illuminate\Http\Request;
-
-class userController extends Controller {
+class UserController extends Controller {
 
 	//
 
 	public function index(){
 
-		$users = User::all();
+		$users = User::oldest()->get();
 
 		return view('users.index',compact('users'));
 	}
@@ -24,6 +22,20 @@ class userController extends Controller {
 		return view('users.show',compact('user'));
 
 	}
+
+	public function create(){
+
+		return view('users.create');
+	}
+
+    public function store(){
+
+        $input = Request::all();
+
+        User::create($input);
+
+        return redirect('user');
+    }
 
 
 }

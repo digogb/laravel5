@@ -20,8 +20,11 @@ Route::get('about', 'PagesController@about');
 Route::get('home', 'HomeController@index');
 
 Route::get('user','UserController@index');
-
+Route::get('user/create','UserController@create');
 Route::get('user/{id}','UserController@show');
+
+Route::post('user','UserController@store');
+
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
