@@ -13,7 +13,7 @@
 </user>
 
 <user>
-    <h3 class="campos">Criado em: {{Carbon\Carbon::parse($user->created_at)}}</h3>
+    <h3 class="campos">Criado em: {{$user->created_at->format('d-m-Y')}}</h3>
 </user>
 
 
