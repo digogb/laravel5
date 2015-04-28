@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AlterColumnPasswordUsers' => $baseDir . '/database/migrations/2015_04_15_012218_alter_column_password_users.php',
+    'CreateTableFones' => $baseDir . '/database/migrations/2015_04_27_234741_create_table_fones.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2015_04_15_011913_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/File/Iterator.php',

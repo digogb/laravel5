@@ -23,7 +23,7 @@ class User extends Model
     public function scopeNewUsers($query)
     {
 
-        $query->where('created_at', '>=', Carbon::now()->subDays(2));
+        $query->where('created_at', '>=', Carbon::now()->subDays(3));
 
     }
 
@@ -31,6 +31,11 @@ class User extends Model
     {
 
         $query->where('created_at', '<=', Carbon::now()->subDays(2));
+    }
+
+    public function fones(){
+
+        return $this->hasMany('App\Fone');
     }
 
 }
