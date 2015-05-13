@@ -1,5 +1,7 @@
 <?php namespace App\Http\Controllers;
 
+setlocale(LC_ALL, '');
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Certificate;
@@ -54,7 +56,7 @@ class ReportController extends Controller {
 	{
 		
 		$certificate = Certificate::find(1);
-		Certificate::doCertificate(@certificate)->Output();
+		Certificate::doCertificate($certificate)->Output();
         exit;
 	}
 

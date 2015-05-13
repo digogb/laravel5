@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AlterColumnPasswordUsers' => $baseDir . '/database/migrations/2015_04_15_012218_alter_column_password_users.php',
+    'CertificateTableSeeder' => $baseDir . '/database/seeds/CertificateTableSeeder.php',
     'CreateCertificatesTable' => $baseDir . '/database/migrations/2015_05_07_220146_create_certificates_table.php',
     'CreateTableFones' => $baseDir . '/database/migrations/2015_04_27_234741_create_table_fones.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2015_04_15_011913_create_users_table.php',

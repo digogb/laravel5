@@ -1,21 +1,17 @@
 <?php namespace App;
 
+setlocale(LC_ALL, '');
+
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Certificate extends Model {
 
  	public $timestamps = false;
+
+	protected $dates = ['dt_inicial','dt_final']; 	
  
     public static function doCertificate( $certificate ){
-
-
-		//$aluno = $name;
-		//$curso = 'FUNDAMENTOS DO FRAMEWORK LARAVEL 5';
-		//$dtInicial = '01/04/2015';
-		//$dtFinal = '30/04/2015';
-		//$carga = '5,3';
-
-		echo($certificate->name);
 
 		$pdf = new \fpdf\FPDF();
 		$pdf->AddPage('L');
@@ -35,10 +31,13 @@ class Certificate extends Model {
 
 		$pdf->SetFont('helvetica','',12);
 		$pdf->Cell(20);
-		$pdf->MultiCell(230,20,'Certificamos que '.$certificate->name.' participou do Curso '.$certificate->course.' no periodo de '.$certificate->dtInicial.' a '.$certificate->dtFinal.' com carga horaria total de '.$certificate->carga.' horas.');
+		$pdf->MultiCell(230,20,'Certificamos que '.$certificate->name.' participou do '.$certificate->course.
+					' no periodo de '.$certificate->dt_inicial->format('d-m-y').' a '.$certificate->dt_final->format('d-m-y').
+					' com carga horaria total de '.$certificate->duration.' horas.');
 
 		$pdf->Ln(20);
-		$pdf->Cell(260,10,'05 de Maio de 2015',0,1,'R');
+		$today = Carbon::today();
+		$pdf->Cell(260,10,$today->format('d').' de '. $today->format('M').' de '. $today->format('Y'),0,1,'R');
 
 		$pdf->Ln(5);	
 		$pdf->Image('images\assinatura.jpg',50,140,-150);
