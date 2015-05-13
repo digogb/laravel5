@@ -58,6 +58,7 @@
 				<ul class="nav navbar-nav">
 					<li><a href="{{ url('/user') }}">Usuários</a></li>
                     <li><a href="{{ url('/user/create') }}">Cadastro de Usuário</a> </li>
+                    <li><a href="{{ url('/pdf') }}">Certificado</a> </li>
 				</ul>
 
 <!--				<ul class="nav navbar-nav navbar-right">

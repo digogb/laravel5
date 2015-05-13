@@ -11,7 +11,8 @@
 |
 */
 
-
+Route::get('pdf', 'ReportController@index');
+Route::get('pdf/{id}', 'ReportController@show');
 
 Route::resource('user','UserController');
 
