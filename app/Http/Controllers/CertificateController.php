@@ -10,7 +10,7 @@ use App\User;
 use Illuminate\Http\Request;
 
 
-class ReportController extends Controller {
+class CertificateController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -54,8 +54,8 @@ class ReportController extends Controller {
 	 */
 	public function show($id)
 	{
-		
-		$certificate = Certificate::find(1);
+		$certificate = Certificate::find($id);
+
 		Certificate::doCertificate($certificate)->Output();
         exit;
 	}

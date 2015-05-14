@@ -9,8 +9,15 @@ class Certificate extends Model {
 
  	public $timestamps = false;
 
+ 	protected $fillable = ['user_id','name','course','dt_inicial','dt_final','duration'];
+
 	protected $dates = ['dt_inicial','dt_final']; 	
  
+    public function user(){
+
+    	return $this->belongsTo('App\User');
+    }	
+
     public static function doCertificate( $certificate ){
 
 		$pdf = new \fpdf\FPDF();
@@ -31,7 +38,7 @@ class Certificate extends Model {
 
 		$pdf->SetFont('helvetica','',12);
 		$pdf->Cell(20);
-		$pdf->MultiCell(230,20,'Certificamos que '.$certificate->name.' participou do '.$certificate->course.
+		$pdf->MultiCell(230,20,'Certificamos que '.$certificate->user->name.' participou do '.$certificate->course.
 					' no periodo de '.$certificate->dt_inicial->format('d-m-y').' a '.$certificate->dt_final->format('d-m-y').
 					' com carga horaria total de '.$certificate->duration.' horas.');
 

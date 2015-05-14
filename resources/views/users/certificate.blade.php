@@ -9,7 +9,7 @@
 	
 	<user>
 		<h3>
-			<a class="margem_esquerda" href="{{action('ReportController@show',[$user->id])}}">Nome : {{$user->name}}</a>
+			<a class="margem_esquerda" href="{{action('CertificateController@show',[$user->id])}}">Nome : {{$user->name}}</a>
 		</h3>
 	</user>	
 

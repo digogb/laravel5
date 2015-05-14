@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('pdf', 'ReportController@index');
-Route::get('pdf/{id}', 'ReportController@show');
+Route::get('pdf', 'CertificateController@index');
+Route::get('pdf/{id}', 'CertificateController@show');
 
 Route::resource('user','UserController');
 

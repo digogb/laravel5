@@ -15,11 +15,18 @@ class CreateCertificatesTable extends Migration {
 		Schema::create('certificates', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->integer('user_id')->unsigned();
 			$table->string('name');
 			$table->string('course');
 			$table->date('dt_inicial');
 			$table->date('dt_final');
 			$table->double('duration');
+
+			$table->foreign('user_id')
+                  ->references('id')
+                  ->on('users')
+                  ->onDelete('cascade');
+
 		});
 	}
 

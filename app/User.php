@@ -38,4 +38,9 @@ class User extends Model
         return $this->hasMany('App\Fone');
     }
 
+    public function certificates(){
+        
+        return $this->hasMany('App\Certificate');
+    }
+
 }
